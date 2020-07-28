@@ -19,25 +19,7 @@ class RestController extends BaseController{
   }
 
   public function cadastrarNovoLocal(){
-    //validate data
-    $validator = new LocalValidator();
-    [$valid, $error] = $validator->forRegistering();
-    if(!$valid){
-      echo json_encode(array("error" => $error));
-      return;
-    }
-
-    //format date
-    $_POST["data"] = DateFormater::ToMySQL($_POST["data"]);
-
-    //store data
-    $locais = $this->loadModel("locais");
-    if(!$locais->register($_POST)){
-      echo json_encode(array("error" => "Oops, ocorreu um erro, por favor tente novamente mais tarde."));
-      return;
-    }
-
-    echo json_encode(array("success" => true));
+    $this->setLocal();
   }
 
   public function editarLocal(){
@@ -45,7 +27,10 @@ class RestController extends BaseController{
       echo json_encode(array("error" => "Informe o local para ser deletado!"));
       return;
     }
+    $this->setLocal();
+  }
 
+  private function setLocal(){
     //validate data
     $validator = new LocalValidator();
     [$valid, $error] = $validator->forRegistering();
@@ -59,7 +44,7 @@ class RestController extends BaseController{
 
     //store data
     $locais = $this->loadModel("locais");
-    if(!$locais->update($_POST)){
+    if(!$locais->setLocal($_POST)){
       echo json_encode(array("error" => "Oops, ocorreu um erro, por favor tente novamente mais tarde."));
       return;
     }
