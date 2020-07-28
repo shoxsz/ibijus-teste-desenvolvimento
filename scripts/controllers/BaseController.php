@@ -1,6 +1,10 @@
 <?php
 
+/** BaseController 
+ * Fornece métodos auxiliares para controllers
+ */
 class BaseController{
+  //default header and footer view to use when loading a view
   private $defaultHeader = null;
   private $defaultFooter = null;
 
@@ -18,15 +22,19 @@ class BaseController{
     if($data){
       extract($data);
     }
+    
     if($this->defaultHeader){
       include("scripts/views/$this->defaultHeader.php");  
     }
+
     include("scripts/views/$view.php");
+    
     if($this->defaultFooter){
       include("scripts/views/$this->defaultFooter.php");  
     }
   }
 
+  //Carrega e instancia um Model
   protected function loadModel($model){
     $ModelClass = $this->getModelClassName($model);
     require_once("scripts/models/$ModelClass.php");

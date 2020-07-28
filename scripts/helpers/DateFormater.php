@@ -1,5 +1,6 @@
 <?php
 
+//Classe auxiliar para formatação de datas
 class DateFormater{
   public static function ToMySQL($data){
     $date = DateTime::createFromFormat('d/m/Y', $_POST["data"]);

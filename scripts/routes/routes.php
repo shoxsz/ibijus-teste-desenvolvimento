@@ -1,5 +1,7 @@
 <?php
 
+//Classe que faz o roteamento das requisições
+//É uma classe simples, não suporta regex nas rotas
 class Routes{
   private $postRoutes;
   private $getRoutes;

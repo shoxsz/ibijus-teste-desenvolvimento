@@ -1,7 +1,6 @@
 <?php
 
 include "BaseModel.php";
-include "scripts/data/Local.php";
 
 class LocaisModel extends BaseModel{
   public function listAll(){

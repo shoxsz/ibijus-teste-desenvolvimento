@@ -1,5 +1,6 @@
 <?php 
 
+//Classe auxiliar, valida os campos de um Local recebidos via POST
 class LocalValidator{
   public function forRegistering(){
     $validation = new Validation($_POST);

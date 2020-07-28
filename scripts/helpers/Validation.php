@@ -1,5 +1,7 @@
 <?php
 
+//Classe auxiliar para validação de dados via post
+//Essa classe eu criei para um projeto da faculdade e reutilizei aqui
 class Validation{
     public static $REQUIRED = 'required';
     public static $MIN_SIZE = 'min_size';

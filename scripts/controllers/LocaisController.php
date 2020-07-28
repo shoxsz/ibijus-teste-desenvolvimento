@@ -4,6 +4,7 @@ require_once "scripts/controllers/BaseController.php";
 
 require_once "scripts/helpers/DateFormater.php";
 
+//Esse Controller monta as páginas da aplicação
 class LocaisController extends BaseController{
   public function __construct(){
     parent::__construct();

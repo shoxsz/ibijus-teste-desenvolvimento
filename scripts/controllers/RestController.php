@@ -7,6 +7,7 @@ require_once "scripts/helpers/DateFormater.php";
 
 use Jarouche\ViaCEP\HelperViaCep;
 
+//Esse controller recebe requisições REST
 class RestController extends BaseController{
   public function fetchCEP($cep){
     try{
