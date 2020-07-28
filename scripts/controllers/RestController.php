@@ -54,12 +54,12 @@ class RestController extends BaseController{
 
     //store data
     $locais = $this->loadModel("locais");
-    if(!$locais->setLocal($_POST)){
+    $id = $locais->setLocal($_POST);
+    if(!$id){
       echo json_encode(array("error" => "Oops, ocorreu um erro, por favor tente novamente mais tarde."));
-      return;
+    }else{
+      echo json_encode(array("success" => $id));
     }
-
-    echo json_encode(array("success" => true));
   }
 
   public function deletarLocal(){

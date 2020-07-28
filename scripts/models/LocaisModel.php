@@ -42,8 +42,16 @@ class LocaisModel extends BaseModel{
     $statement->bindParam(':uf', $data["uf"]);
     $statement->bindParam(':cidade', $data["cidade"]);
     $statement->bindParam(':data', $data["data"]);
-    
-    return $statement->execute();
+
+    if(!$statement->execute()){
+      return false;
+    }
+
+    if($updating){
+      return $data["id"];
+    }else{
+      return $this->connection->lastInsertId();
+    }
   }
 
   public function delete($id){

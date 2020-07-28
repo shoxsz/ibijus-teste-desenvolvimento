@@ -55,7 +55,9 @@ $(function(){
     }
 
     const id = $("#local-id").val();
-    backendClient.sendLocal(buildFormObj(), id);
+    backendClient.sendLocal(buildFormObj(), id, function(id){
+      location.href = '/ibijus/editar-local/?id=' + id;
+    });
   }
 
   $("#cep").blur(fetchCEP);

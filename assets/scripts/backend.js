@@ -35,7 +35,7 @@ class BackendClient{
     });
   }
 
-  sendLocal(data, id){
+  sendLocal(data, id, callback){
     const updating = !!id;
     var sendUrl;
 
@@ -56,8 +56,8 @@ class BackendClient{
           swal(result.error);
         }
 
-        if(result.success){
-          swal("Localidade salva!").then(function(){ location.reload(); });
+        if(!!result.success){
+          swal("Localidade salva!").then(function() { callback(result.success); });
         }
       },
       error: function(){
