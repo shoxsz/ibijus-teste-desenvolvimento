@@ -1,0 +1,35 @@
+.locais-table{
+  margin-bottom: 8px;
+}
+
+.table-options{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-options:hover{
+  cursor: pointer;
+}
+
+.table-options .table-option{
+  font-size: 18px;
+  padding: 4px;
+}
+
+.local-row{
+  background: #e8f0fe;
+}
+
+.local-mg{
+  background: #2f7fae;
+  color: #ffffff;
+}
+
+td{
+  padding: 4px;
+}
+
+.add-button{
+  font-size: 18px;
+}

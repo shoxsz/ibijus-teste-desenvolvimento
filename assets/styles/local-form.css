@@ -1,0 +1,20 @@
+.form-input-button{
+  background: #cc9933 !important; 
+  color: #ffffff;
+}
+
+.input-element{
+  margin: 8px;
+  font-weight: bold;
+}
+
+.input-element input[type=text]{
+  border-radius: 25px;
+  border-style: none;
+  padding: 6px;
+  background: #e8f0fe;
+}
+
+input[type=submit]{
+  margin-top: 8px;
+}
