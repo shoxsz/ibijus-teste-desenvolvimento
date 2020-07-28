@@ -30,7 +30,7 @@ class BackendClient{
         }
       },
       error: function(){
-        alert("Falha ao acessar o servidor!");
+        swal("Falha ao acessar o servidor!");
       }
     });
   }

@@ -17,9 +17,14 @@ class RestController extends BaseController{
       }
 
       $data = HelperViaCep::getBuscaViaCEP("JSON", $_GET["cep"]);
-      echo json_encode($data);
+
+      if(isset($data["result"]["erro"])){
+        echo json_encode(array("error" => "Falha ao pesquisar o CEP informado"));
+      }else{
+        echo json_encode($data);
+      }
     }catch(Exception $ex){
-      echo json_encode(array("error" => "Falha ao processar o CEP informado"));
+      echo json_encode(array("error" => "Falha ao pesquisar o CEP informado"));
     }
   }
 

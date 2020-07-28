@@ -54,7 +54,7 @@
         </div>
         <div class="input-element">
           <input class="form-input-button" type="submit" value="Confirmar"/>
-          <a href="/ibijus/"><button type="button">Cancelar</button></a>
+          <a href="/ibijus/"><button type="button">Voltar</button></a>
         </div>
       </div>
     </form>
