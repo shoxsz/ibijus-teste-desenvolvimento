@@ -1,6 +1,10 @@
 # ibijus-teste-desenvolvimento
 Teste de desenvolvimento para o Ibijus
 
+# Instrução para execução
+
+Coloque o código dentro da pasta que o seu servidor reconhece, baixe as dependências do **composer**, o projeto deve estar dentro de uma pasta chamada ***ibijus***, de forma que seja acessível pela url: `http://localhost/ibijus/`, exemplo: `http://localhost/ibijus/novo-local/`
+
 # Explicação do Projeto
 
 **Obs:** Optei por não usar nenhum framework, primeiro por preferência pessoal, eu gosto de escrever códigos mais limpos, no sentido de não serem carregados de dependências,
