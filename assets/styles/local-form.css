@@ -8,7 +8,24 @@
   font-weight: bold;
 }
 
+form{
+  width: 100%;
+}
+
+.form-content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-element{
+  width: 80%;
+}
+
 .input-element input[type=text]{
+  width: 100%;
   border-radius: 25px;
   border-style: none;
   padding: 6px;
