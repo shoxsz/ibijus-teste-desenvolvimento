@@ -4,8 +4,8 @@ include "scripts/controllers/LocaisController.php";
 include "scripts/controllers/RestController.php";
 
 function restRouting($rest, $routes){
-  $routes->get("/ibijus/fetch-cep", function($cep)use($rest){
-    $rest->fetchCEP($cep);
+  $routes->get("/ibijus/fetch-cep", function()use($rest){
+    $rest->fetchCEP();
   });
 
   $routes->post("/ibijus/cadastrar-novo-local", function()use($rest){

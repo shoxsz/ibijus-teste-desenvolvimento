@@ -9,9 +9,14 @@ use Jarouche\ViaCEP\HelperViaCep;
 
 //Esse controller recebe requisições REST
 class RestController extends BaseController{
-  public function fetchCEP($cep){
+  public function fetchCEP(){
     try{
-      $data = HelperViaCep::getBuscaViaCEP("JSON", $cep);
+      if(!isset($_GET["cep"])){
+        echo json_encode(array("error" => "Informe o CEP para ser pesquisado"));
+        return;
+      }
+
+      $data = HelperViaCep::getBuscaViaCEP("JSON", $_GET["cep"]);
       echo json_encode($data);
     }catch(Exception $ex){
       echo json_encode(array("error" => "Falha ao processar o CEP informado"));

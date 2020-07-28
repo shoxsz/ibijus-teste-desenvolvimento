@@ -27,20 +27,19 @@ class Routes{
     $routesArray = $_SERVER["REQUEST_METHOD"] == "POST" ? $this->postRoutes : $this->getRoutes;
 
     $request_url = $URI_DATA[0];
-    $params = count($URI_DATA) > 1 ? array_slice($URI_DATA, 1) : [];
 
     $found = false;
     foreach($routesArray as $key => $data){
       if(is_array($data)){
         foreach($data["routes"] as $route){
           if(substr($request_url, 0, strlen($route)) === $route){
-            call_user_func_array($data["callback"], $params);
+            $this->executeRoute($data["callback"]);
             $found = true;
             break;
           }
         }
       }else if(substr($request_url, 0, strlen($key)) === $key){
-        call_user_func_array($data, $params);
+        $this->executeRoute($data);
         $found = true;
         break;
       }
@@ -49,5 +48,14 @@ class Routes{
         break;
       }
     }
+  }
+
+  private function executeRoute($routeCallback){
+    try{
+      call_user_func_array($routeCallback, []);
+    }catch(Exception $ex){
+      echo "An exception ocurred while processing the request<br/>";
+      echo $ex->getTraceAsString();
+    } 
   }
 }
