@@ -1,11 +1,20 @@
 $(function(){
   const backendClient = new BackendClient();
 
+  const CEP_REGEX = /^\d\d\d\d\d\d\d\d$/;
+
+  const formatCEPField = function(){
+    const cep = $("#cep").val().replace("-", "");
+    $("#cep").val(cep);
+  }
+
   const validateCEP = function(){
     const cep = $("#cep").val();
-    if(cep.length != 8){
+
+    if(!CEP_REGEX.test(cep)){
       return false;
     }
+
     return true;
   }
 
@@ -50,5 +59,6 @@ $(function(){
   }
 
   $("#cep").blur(fetchCEP);
+  $("#cep").change(formatCEPField);
   $("#cadastro_form").submit(submitForm);
 });

@@ -5,7 +5,7 @@ class LocalValidator{
   public function forRegistering(){
     $validation = new Validation($_POST);
     $validation->addField('nome', array(Validation::$REQUIRED => true, Validation::$MIN_SIZE => 1, Validation::$MAX_SIZE => 100), array(Validation::$REQUIRED => "Insira um nome para a localidade", Validation::$MIN_SIZE => "Name muito curto", Validation::$MAX_SIZE => "Nome muito grande"));
-    $validation->addField('cep', array(Validation::$REQUIRED => true, Validation::$MIN_SIZE => 8, Validation::$MAX_SIZE => 8), array(Validation::$REQUIRED => "Favor informar o CEP para a consulta", Validation::$MIN_SIZE => "CEP inválido", Validation::$MAX_SIZE => "CEP inválido"));
+    $validation->addField('cep', array(Validation::$REQUIRED => true, Validation::$CEP => true), array(Validation::$REQUIRED => "Favor informar o CEP para a consulta", Validation::$CEP => "CEP inválido"));
     $validation->addField('logradouro', array(Validation::$REQUIRED => true, Validation::$MIN_SIZE => 1, Validation::$MAX_SIZE => 150), array(Validation::$REQUIRED => "Insira o logradouro", Validation::$MIN_SIZE => "Logradouro muito curto", Validation::$MAX_SIZE => "Logradouro muito grande"));
     $validation->addField('complemento', array(Validation::$REQUIRED => true, Validation::$MIN_SIZE => 1, Validation::$MAX_SIZE => 100), array(Validation::$REQUIRED => "Insira o complemento", Validation::$MIN_SIZE => "Complemento muito curto", Validation::$MAX_SIZE => "Complemento muito grande"));
     $validation->addField('numero', array(Validation::$REQUIRED => true, Validation::$MIN_SIZE => 1, Validation::$MAX_SIZE => 6), array(Validation::$REQUIRED => "Insira o número", Validation::$MIN_SIZE => "Número muito curto", Validation::$MAX_SIZE => "Número muito grande"));

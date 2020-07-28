@@ -13,6 +13,7 @@ class Validation{
     public static $CNPJ = 'cnpj';
     public static $CPF = 'cpf';
     public static $TELEPHONE = 'tel';
+    public static $CEP = 'cep';
 
     //array para ser validado
     private $toValidate;
@@ -114,6 +115,9 @@ class Validation{
             case self::$TELEPHONE:
                 return $this->validateTelephone($value);
             break;
+            case self::$CEP:
+                return $this->validateCEP($value);
+            break;
         }
     }
 
@@ -152,6 +156,9 @@ class Validation{
             break;
             case self::$TELEPHONE:
                 return 'Telefone inválido.';
+            break;
+            case self::$CEP:
+                return 'CEP inválido.';
             break;
         }
     }
@@ -193,5 +200,9 @@ class Validation{
     private function validateTelephone($tel){
         //[(xx)] xxxx-xxxx
         return preg_match('/^(\(\d{2}\)|)(| )\d{4}-\d{4}$/', $tel) == 1;
+    }
+
+    private function validateCEP($cep){
+        return preg_match('/^\d{8}$/', $cep) == 1;
     }
 }
